@@ -8,7 +8,7 @@ use lib::{
 };
 
 fn main() {
-    let my_vec = generate_vec(10000, 5643, 967, 42);
+    let my_vec = generate_vec(10000, 5643, 967, 40);
     let mut my_vec_2 = my_vec.clone();
     let my_vec_3 = my_vec.clone();
     let target: i32 = 6610;
