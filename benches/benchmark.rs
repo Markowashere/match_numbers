@@ -12,7 +12,7 @@ use criterion::{
 };
 
 fn criterion_benchmark(c: &mut Criterion) {
-    let my_vec = generate_vec(100000, 5643, 967);
+    let my_vec = generate_vec(1000000, 5643, 967);
     let mut my_vec_2 = my_vec.clone();
     let target: i32 = 6610;
 
