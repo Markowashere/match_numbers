@@ -1,5 +1,6 @@
 use std::collections::HashMap;
-use rand::Rng;
+use rand::seq::SliceRandom;
+use rand::{Rng, SeedableRng, rngs::StdRng};
 
 pub fn find_pair(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     for (i, num1) in source.iter().enumerate() {
@@ -44,15 +45,14 @@ pub fn find_pair_map(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     None
 }
 
-pub fn generate_vec(n: i32, num1: i32, num2: i32) -> Vec<i32> {
+pub fn generate_vec(n: i32, num1: i32, num2: i32, seed: u64) -> Vec<i32> {
     let mut vec = Vec::new();
-    let mut rng = rand::thread_rng();
+    let mut rng = StdRng::seed_from_u64(seed);
     for _ in 0..n {
-        vec.push(rng.gen_range(1, 1000000000));
+        vec.push(rng.gen_range(1..1000000000));
     }
     vec.push(num1);
     vec.push(num2);
-
-    rng.shuffle(&mut vec);
+    vec.shuffle(&mut rng);
     vec
 }
