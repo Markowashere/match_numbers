@@ -1,5 +1,5 @@
 use match_numbers::{
-    find_pair,
+    //find_pair,
     find_pair_i,
     find_pair_map,
     generate_vec
