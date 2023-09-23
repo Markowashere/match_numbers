@@ -49,7 +49,7 @@ pub fn find_pair_map(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     None
 }
 
-pub fn generate_vec(n: i32, num1: i32, num2: i32, seed: u64) -> Vec<i32> {
+pub fn _generate_vec(n: i32, num1: i32, num2: i32, seed: u64) -> Vec<i32> {
     let mut vec = Vec::new();
     let mut rng = StdRng::seed_from_u64(seed);
     for _ in 0..n {

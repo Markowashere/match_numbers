@@ -1,7 +1,7 @@
-use match_numbers::{find_pair, find_pair_i, find_pair_map, generate_vec};
+use match_numbers::{find_pair, find_pair_i, find_pair_map, _generate_vec};
 
 fn main() {
-    let my_vec = generate_vec(10000, 5643, 967, 40);
+    let my_vec = _generate_vec(10000, 5643, 967, 40);
     let my_vec_2 = my_vec.clone();
     let my_vec_3 = my_vec.clone();
     let target: i32 = 6610;
