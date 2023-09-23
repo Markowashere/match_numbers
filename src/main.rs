@@ -1,9 +1,4 @@
-use match_numbers::{
-    find_pair,
-    find_pair_i,
-    find_pair_map,
-    generate_vec
-};
+use match_numbers::{find_pair, find_pair_i, find_pair_map, generate_vec};
 
 fn main() {
     let my_vec = generate_vec(10000, 5643, 967, 40);
@@ -29,4 +24,3 @@ fn main() {
         println!("No pair found for target in find_pair_i.");
     }
 }
-

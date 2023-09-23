@@ -1,6 +1,6 @@
-use std::collections::HashMap;
 use rand::seq::SliceRandom;
-use rand::{Rng, SeedableRng, rngs::StdRng};
+use rand::{rngs::StdRng, Rng, SeedableRng};
+use std::collections::HashMap;
 
 pub fn find_pair(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     for (i, num1) in source.iter().enumerate() {
@@ -37,10 +37,13 @@ pub fn find_pair_map(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
 
     for num in source {
         let comp = target - num;
-        if let Some(&other_num) = map.get(&comp) {
-            return Some([*num, other_num]);
-        } else {
-            map.insert(*num, comp);
+        let search = map.get(&comp);
+
+        match search {
+            Some(&_) => return Some([comp, *num]),
+            None => {
+                map.insert(*num, comp);
+            }
         }
     }
     None
@@ -56,4 +59,34 @@ pub fn generate_vec(n: i32, num1: i32, num2: i32, seed: u64) -> Vec<i32> {
     vec.push(num2);
     vec.shuffle(&mut rng);
     vec
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn find_pair_works() {
+        use super::*;
+        let vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let target = 10;
+        let ans = find_pair(&vec, &target);
+        assert_eq!(ans, Some([1, 9]));
+    }
+
+    #[test]
+    fn find_pair_i_works() {
+        use super::*;
+        let vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let target = 10;
+        let ans = find_pair_i(&vec, &target);
+        assert_eq!(ans, Some([1, 9]));
+    }
+
+    #[test]
+    fn find_pair_map_works() {
+        use super::*;
+        let vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let target = 10;
+        let ans = find_pair_map(&vec, &target);
+        assert_eq!(ans, Some([1, 9]));
+    }
 }
