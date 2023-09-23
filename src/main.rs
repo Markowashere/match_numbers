@@ -1,6 +1,4 @@
-mod lib;
-
-use lib::{
+use match_numbers::{
     find_pair,
     find_pair_i,
     find_pair_map,
