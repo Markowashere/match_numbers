@@ -37,12 +37,12 @@ pub fn find_pair_map(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
 
     for num in source {
         let comp = target - num;
-        let search = map.get(&comp);
+        let search = map.get(&num);
 
         match search {
             Some(&_) => return Some([comp, *num]),
             None => {
-                map.insert(*num, comp);
+                map.insert(comp, *num);
             }
         }
     }
