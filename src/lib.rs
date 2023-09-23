@@ -66,7 +66,7 @@ mod tests {
     #[test]
     fn find_pair_works() {
         use super::*;
-        let vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let vec = vec![1, 12, 34, 534, 35, 9];
         let target = 10;
         let ans = find_pair(&vec, &target);
         assert_eq!(ans, Some([1, 9]));
@@ -75,7 +75,7 @@ mod tests {
     #[test]
     fn find_pair_i_works() {
         use super::*;
-        let vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let vec = vec![1, 12, 34, 534, 35, 9];
         let target = 10;
         let ans = find_pair_i(&vec, &target);
         assert_eq!(ans, Some([1, 9]));
@@ -84,7 +84,7 @@ mod tests {
     #[test]
     fn find_pair_map_works() {
         use super::*;
-        let vec = vec![1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let vec = vec![1, 12, 34, 534, 35, 9];
         let target = 10;
         let ans = find_pair_map(&vec, &target);
         assert_eq!(ans, Some([1, 9]));
