@@ -13,15 +13,16 @@ pub fn find_pair(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     None
 }
 
-pub fn find_pair_i(source: &mut Vec<i32>, target: &i32) -> Option<[i32; 2]> {
-    source.sort();
+pub fn find_pair_i(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
+    let mut sorted_source = source.clone();
+    sorted_source.sort();
     let mut i = 0;
-    let mut j = source.len() - 1;
+    let mut j = sorted_source.len() - 1;
 
     while i < j {
-        let sum = source[i] + source[j];
+        let sum = sorted_source[i] + sorted_source[j];
         if sum == *target {
-            return Some([source[i], source[j]]);
+            return Some([sorted_source[i], sorted_source[j]]);
         } else if sum < *target {
             i += 1;
         } else {

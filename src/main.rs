@@ -7,7 +7,7 @@ use match_numbers::{
 
 fn main() {
     let my_vec = generate_vec(10000, 5643, 967, 40);
-    let mut my_vec_2 = my_vec.clone();
+    let my_vec_2 = my_vec.clone();
     let my_vec_3 = my_vec.clone();
     let target: i32 = 6610;
 
@@ -17,7 +17,7 @@ fn main() {
         println!("No pair found for target in find_pair.");
     }
 
-    if let Some(ans) = find_pair_i(&mut my_vec_2, &target) {
+    if let Some(ans) = find_pair_i(&my_vec_2, &target) {
         println!("number one: {}, number two: {}", ans[0], ans[1]);
     } else {
         println!("No pair found for target in find_pair_i.");
