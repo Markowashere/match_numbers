@@ -2,7 +2,7 @@ use rand::seq::SliceRandom;
 use rand::{rngs::StdRng, Rng, SeedableRng};
 use std::collections::HashMap;
 
-pub fn find_pair(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
+pub fn find_pair_loop(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     for (i, num1) in source.iter().enumerate() {
         for (_, num2) in source[i..].iter().enumerate() {
             if num1 + num2 == *target {
@@ -13,7 +13,7 @@ pub fn find_pair(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     None
 }
 
-pub fn find_pair_iter(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
+pub fn find_pair_sort(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     let mut sorted_source = source.clone();
     sorted_source.sort();
     let mut i = 0;
@@ -68,7 +68,7 @@ mod tests {
         use super::*;
         let vec = vec![1, 12, 34, 534, 35, 9];
         let target = 10;
-        let ans = find_pair(&vec, &target);
+        let ans = find_pair_loop(&vec, &target);
         assert_eq!(ans, Some([1, 9]));
     }
 
@@ -77,7 +77,7 @@ mod tests {
         use super::*;
         let vec = vec![1, 12, 34, 534, 35, 9];
         let target = 10;
-        let ans = find_pair_iter(&vec, &target);
+        let ans = find_pair_sort(&vec, &target);
         assert_eq!(ans, Some([1, 9]));
     }
 

@@ -1,7 +1,7 @@
 use match_numbers::{
     _generate_vec,
-    //find_pair,
-    find_pair_iter,
+    //find_pair_loop,
+    find_pair_sort,
     find_pair_map,
 };
 
@@ -11,9 +11,9 @@ fn criterion_benchmark(c: &mut Criterion) {
     let my_vec = black_box(_generate_vec(1_000_000, 5643, 967, 40));
     let target: i32 = 6610;
 
-    //c.bench_function("find_pair", |b| b.iter(|| find_pair(&my_vec, &target)));
-    c.bench_function("find_pair_iter", |b| {
-        b.iter(|| find_pair_iter(&my_vec, &target))
+    //c.bench_function("find_pair_loop", |b| b.iter(|| find_pair(&my_vec, &target)));
+    c.bench_function("find_pair_sort", |b| {
+        b.iter(|| find_pair_sort(&my_vec, &target))
     });
     c.bench_function("find_pair_map", |b| {
         b.iter(|| find_pair_map(&my_vec, &target))
