@@ -1,6 +1,7 @@
 use rand::seq::SliceRandom;
 use rand::{rngs::StdRng, Rng, SeedableRng};
 use std::collections::HashMap;
+use std::cmp::Ordering;
 
 pub fn find_pair_loop(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     for (i, num1) in source.iter().enumerate() {
@@ -21,12 +22,10 @@ pub fn find_pair_sort(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
 
     while i < j {
         let sum = sorted_source[i] + sorted_source[j];
-        if sum == *target {
-            return Some([sorted_source[i], sorted_source[j]]);
-        } else if sum < *target {
-            i += 1;
-        } else {
-            j -= 1;
+        match sum.cmp(target) {
+            Ordering::Equal => return Some([sorted_source[i], sorted_source[j]]),
+            Ordering::Less => i += 1,
+            Ordering::Greater => j -= 1,
         }
     }
     None
