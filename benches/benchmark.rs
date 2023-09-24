@@ -1,4 +1,9 @@
-use match_numbers::{_generate_vec, find_pair, find_pair_iter, find_pair_map};
+use match_numbers::{
+    _generate_vec, 
+    //find_pair, 
+    find_pair_iter, 
+    find_pair_map
+};
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
 
@@ -17,7 +22,7 @@ fn criterion_benchmark(c: &mut Criterion) {
 
 criterion_group! {
     name=benches;
-    config = Criterion::default().significance_level(0.001).sample_size(10);
+    config = Criterion::default().significance_level(0.001).sample_size(50);
     targets=criterion_benchmark
 }
 criterion_main!(benches);
