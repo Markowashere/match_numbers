@@ -1,8 +1,8 @@
 use match_numbers::{
-    _generate_vec, 
-    //find_pair, 
-    find_pair_iter, 
-    find_pair_map
+    _generate_vec,
+    //find_pair,
+    find_pair_iter,
+    find_pair_map,
 };
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
