@@ -1,7 +1,7 @@
 use rand::seq::SliceRandom;
 use rand::{rngs::StdRng, Rng, SeedableRng};
-use std::collections::HashMap;
 use std::cmp::Ordering;
+use std::collections::HashMap;
 
 pub fn find_pair_loop(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     for (i, num1) in source.iter().enumerate() {
