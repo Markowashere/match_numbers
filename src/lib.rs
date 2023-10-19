@@ -14,8 +14,8 @@ pub fn find_pair_loop(source: &[i32], target: &i32) -> Option<[i32; 2]> {
     None
 }
 
-pub fn find_pair_sort(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
-    let mut sorted_source = source.clone();
+pub fn find_pair_sort(source: &[i32], target: &i32) -> Option<[i32; 2]> {
+    let mut sorted_source = source.to_owned();
     sorted_source.sort();
     let mut left = 0;
     let mut right = sorted_source.len() - 1;
