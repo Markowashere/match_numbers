@@ -17,15 +17,15 @@ pub fn find_pair_loop(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
 pub fn find_pair_sort(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
     let mut sorted_source = source.clone();
     sorted_source.sort();
-    let mut i = 0;
-    let mut j = sorted_source.len() - 1;
+    let mut left = 0;
+    let mut right = sorted_source.len() - 1;
 
-    while i < j {
-        let sum = sorted_source[i] + sorted_source[j];
+    while left < right {
+        let sum = sorted_source[left] + sorted_source[right];
         match sum.cmp(target) {
-            Ordering::Equal => return Some([sorted_source[i], sorted_source[j]]),
-            Ordering::Less => i += 1,
-            Ordering::Greater => j -= 1,
+            Ordering::Equal => return Some([sorted_source[left], sorted_source[right]]),
+            Ordering::Less => left += 1,
+            Ordering::Greater => right -= 1,
         }
     }
     None
