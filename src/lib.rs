@@ -3,7 +3,7 @@ use rand::{rngs::StdRng, Rng, SeedableRng};
 use std::cmp::Ordering;
 use std::collections::HashMap;
 
-pub fn find_pair_loop(source: &Vec<i32>, target: &i32) -> Option<[i32; 2]> {
+pub fn find_pair_loop(source: &[i32], target: &i32) -> Option<[i32; 2]> {
     for (i, num1) in source.iter().enumerate() {
         for (_, num2) in source[i..].iter().enumerate() {
             if num1 + num2 == *target {
